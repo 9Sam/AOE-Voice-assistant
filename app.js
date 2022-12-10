@@ -26,7 +26,6 @@ app.use("/public", express.static(path.join(__dirname, 'public')))
 //? LISTENING THE SERVER
 app.listen(app.get("port"), () => {
     console.log("Listening on port " + app.get('port'))
-    //usando ``app.get()`` podemos utilizar las variables creadas por express
 })
 
 module.exports = app
