@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<!-- <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="public/img/bot.png">
+    <title>Document</title>
+</head> -->
+<head>
+    <%- include('./partials/head.html') %> 
+</head>
+<body class="bg-dark">
+    <section>
+        <img class="logo" src="../public/img/aoe2logo.png" alt="Age of empires 2, logo">
+        <p>Wololo my dear friends</p>
+        <div class="container bg-dark">
+            <div class="imessage texts"></div>
+        </div>
+    </section>
+    <%- include('./partials/footer.html') %> 
+
+    <%-  include('../modules/speech_text.ejs') %> 
+    <script>
+        console.log(`<%= text %>`)
+    </script>
+</body>
+</html>

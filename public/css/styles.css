@@ -1,0 +1,143 @@
+:root {
+    --color-dark: #02020d;
+    --color-rojo: #EE7456;
+    --color-yellow: #EED556;
+}
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+html {
+    font-family: "Montserrat";
+    /* font-size: 20px; */
+    background-color: var(--color-dark);
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+        Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
+    font-weight: normal;
+    margin: 0;
+    color: white;
+}
+
+section {
+    min-height: 100vh;
+    width: 100%;
+    display: flex;
+    align-items: flex-start;
+    flex-direction: column;
+    padding: 0px 0;
+}
+
+section h1 {
+    color: rgba(255, 255, 255, 0.322);
+    text-align: center;
+    width: 100%;
+    font-size: 50px;
+    margin-bottom: 10px;
+}
+
+section p {
+    text-align: center;
+    color: rgba(255, 255, 255, 0.322);
+    width: 100%;
+    margin-bottom: 40px;
+}
+
+.container {
+    margin: 0 auto;
+    max-width: 600px;
+    padding: 1rem;
+}
+
+h1 {
+    font-weight: normal;
+    margin-bottom: 0.5rem;
+}
+
+h2 {
+    border-bottom: 1px solid #e5e5ea;
+    color: #666;
+    font-weight: normal;
+    margin-top: 0;
+    padding-bottom: 1.5rem;
+}
+
+
+/* general styling */
+@font-face {
+    font-family: "SanFrancisco";
+    src: url("https://cdn.rawgit.com/AllThingsSmitty/fonts/25983b71/SanFrancisco/sanfranciscodisplay-regular-webfont.woff2")
+            format("woff2"),
+        url("https://cdn.rawgit.com/AllThingsSmitty/fonts/25983b71/SanFrancisco/sanfranciscodisplay-regular-webfont.woff")
+            format("woff");
+}
+
+.bg-dark{
+    background-color: var(--color-dark) !important
+}
+
+/*? Images*/
+.logo {
+    width: 400px;
+    height: 300px;
+    display: block;
+    margin: 0 auto;
+}
+
+/*Prueba*/
+.box3 {
+    width: 80%;
+    margin: 15px auto;
+    border-radius: 15px;
+    background: #00bfb6;
+    color: #fff;
+    padding: 20px;
+    text-align: center;
+    font-weight: 900;
+    font-family: arial;
+    position: relative;
+  }
+  
+  
+  /* speech bubble 13 */
+  .sb13{
+    background-color: var(--color-rojo);
+    color: var(--color-dark);
+  }
+
+  .sb13:before {
+    content: "";
+    width: 0px;
+    height: 0px;
+    position: absolute;
+    border-left: 15px solid var(--color-rojo);
+    border-right: 15px solid transparent;
+    border-top: 15px solid var(--color-rojo);
+    border-bottom: 15px solid transparent;
+    right: -16px;
+    top: 0px;
+  }
+  
+  
+  /* speech bubble 14 */
+  .sb14{
+      background-color: var(--color-yellow);
+      color: var(--color-dark);
+  }
+  .sb14:before {
+    content: "";
+    width: 0px;
+    height: 0px;
+    position: absolute;
+    border-left: 15px solid transparent;
+    border-right: 15px solid var(--color-yellow);
+    border-top: 15px solid var(--color-yellow);
+    border-bottom: 15px solid transparent;
+    left: -16px;
+    top: 0px;
+  }

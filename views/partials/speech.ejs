@@ -1,0 +1,42 @@
+<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+<script>
+    // const texts = document.querySelector(".texts");
+
+    window.SpeechRecognition =
+        window.SpeechRecognition || window.webkitSpeechRecognition;
+
+    const recognition = new SpeechRecognition();
+
+    recognition.interimResult = true;
+    recognition.lang = "es";
+
+    let p = document.createElement("p");
+
+    recognition.addEventListener("result", (e) => {
+        // texts.appendChild(p);
+        let text = e.results[0][0].transcript;
+        console.log(text);
+        p.innerText = text;
+        // recognize(text);
+        p = document.createElement("p");
+
+        axios
+            .post("/prueba", {
+                firstName: "Fred",
+                lastName: "Flintstone",
+            })
+            .then(function (response) {
+                console.log(response);
+            })
+            .catch(function (error) {
+                console.log(error);
+            });
+    });
+    //El código obtiene el valor y ejecuta el código según la opción seleccionada
+
+    recognition.start();
+    //El programa comienza a escuchar
+    recognition.addEventListener("end", () => {
+        recognition.start();
+    });
+</script>

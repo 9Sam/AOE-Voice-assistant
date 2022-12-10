@@ -1,0 +1,65 @@
+<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+<script src="https://code.jquery.com/jquery-3.5.0.js"></script>
+
+<script>
+    const texts = document.querySelector(".texts");
+    
+    let resp = "";
+    
+    function speakNow(txt){
+        const speech = new SpeechSynthesisUtterance(txt);
+        speech.lang = "es";
+        // speech.text = txt;
+        speechSynthesis.cancel();
+        speechSynthesis.speak(speech);
+    }
+    
+    var speechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
+    // Crear el objeto de speech recognition dependiendo si es un navegador normal o chrome
+    
+    const recognition = new speechRecognition();
+    // recognition.continuous = true;
+    recognition.interimResult = true;
+    recognition.lang = "es";
+    
+    let p = document.createElement("p");
+
+    function createResponse(text){
+        let pResponse = document.createElement('p')
+        pResponse.innerText = text;
+        pResponse.classList.add('box3','sb13')
+        texts.append(pResponse)
+        pResponse.focus();
+        pResponse.scrollIntoView();
+    }
+    
+    console.log('inicio')
+    recognition.addEventListener("result", (e) => {
+        texts.appendChild(p);
+        let text = e.results[0][0].transcript;
+        p.innerText = text;
+        p.classList.add('box3','sb14');
+        // recognize(text);
+        p = document.createElement("p");
+        p.focus();
+        p.scrollIntoView()
+
+        $.ajax({
+            url: '/command',
+            type: 'POST',
+            contentType: "application/json",
+            data: JSON.stringify({text: text})
+        }).done((result) => {
+            console.log(result)
+            createResponse(result)
+            speakNow(result)
+        })
+    });
+    //El código obtiene el valor y ejecuta el código según la opción seleccionada
+
+    recognition.start();
+    //El programa comienza a escuchar
+    recognition.addEventListener("end", () => {
+        recognition.start();
+    });
+</script>
